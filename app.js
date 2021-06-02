@@ -27,11 +27,11 @@ async function startServer() {
     app.set("view engine", "ejs");
     app.use(express.static(__dirname + '/'));
 
-    app.get("/", (req, res) => {
+    app.get("/cf", (req, res) => {
         res.render("sample", {})
     })
 
-    app.get("/cdn", (req, res) => {
+    app.get("/cf/cdn", (req, res) => {
         const signedUrl = signer.getSignedUrl({
             url: 'https://d1dj3bm16kgai7.cloudfront.net/output/sample-5s.mp4',
             expires: Math.floor((Date.now() + expTime) / 1000)
@@ -41,6 +41,10 @@ async function startServer() {
             "One time URL will be expired in 1 hour" : signedUrl
         })
 
+    })
+
+    app.get('/status', (req, res) => {
+        return res.status(200)
     })
 
     app.listen(PORT, () => {
