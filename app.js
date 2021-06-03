@@ -64,7 +64,7 @@ async function startServer() {
     })
 
     app.get("/status", (req, res) => {
-        return res.status(200)
+        return res.status(200).end()
     })
 
     app.listen(PORT, () => {
