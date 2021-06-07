@@ -57,6 +57,9 @@ podTemplate(label: 'docker-build',
                         export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                         git config --global user.email "duswldnd12@naver.com"
                         git checkout main
+                        cat << EOF >> sample.txt
+                        hi
+                        EOF
                         git commit -a -m "chore:Test pipeline"
                         git push
                     """)
