@@ -47,7 +47,7 @@ podTemplate(label: 'docker-build',
                         extensions: scm.extensions,
                         userRemoteConfigs: [[
                             url: 'git@github.com:funkywoong/sample-dev.git',
-                            credentialsId: 'funkywoong-git-credentials',
+                            credentialsId: 'jenkins-ssh-private',
                         ]]
                 ])
                 sshagent(credentials: ['jenkins-git-credential']) {
