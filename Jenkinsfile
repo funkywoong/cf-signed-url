@@ -50,7 +50,7 @@ podTemplate(label: 'docker-build',
                             credentialsId: 'jenkins-ssh-private',
                         ]]
                 ])
-                sshagent(credentials: ['jenkins-git-credential']) {
+                sshagent(credentials: ['jenkins-ssh-private']) {
                     sh("""
                         #!/usr/bin/env bash
                         set +x
