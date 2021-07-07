@@ -48,11 +48,11 @@ async function startServer() {
     app.set("view engine", "ejs");
     app.use(express.static(__dirname + '/'));
 
-    app.get("/cf", (req, res) => {
+    app.get("/", (req, res) => {
         res.render("sample", {})
     })
 
-    app.get("/cf/cdn", (req, res) => {
+    app.get("/cdn", (req, res) => {
         const signedUrl = signer.getSignedUrl({
             url: 'https://d1dj3bm16kgai7.cloudfront.net/output/sample-5s.mp4',
             expires: Math.floor((Date.now() + expTime) / 1000)
